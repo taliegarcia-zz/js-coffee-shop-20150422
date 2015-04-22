@@ -46,30 +46,36 @@
 <script>
 
     // Set these 3 variables to their DOM elements
-
-    function makeCoffee(evt) {
-        myImage.setAttribute('src', "static/coffee_machine.jpg");
-        // 1000ms later...go to coffee_mug
-
-        setTimeout(function () {  // Need function syntax here in setTimeout
-            myImage.setAttribute('src', "static/coffee_mug.jpg"); 
-        }, 3000);
-
-        setTimeout(function () {  // Need function syntax here in setTimeout
-            myImage.setAttribute('src', "static/coffee_beans.jpg"); 
-        }, 6000);
-        
-       
-    } 
-
     var myImage = document.getElementById("coffee_image");
     myImage.setAttribute('src', "static/coffee_beans.jpg");
 
     var imageButton = document.getElementById("coffee_image");
 
-    imageButton.addEventListener('click', makeCoffee);
+    imageButton.addEventListener('click', function () {makeCoffee("brew")});
 
     var myRevenueMessage;
+
+    var drinksOrdered = []
+
+    function makeCoffee(drinkType) {
+        myImage.setAttribute('src', "static/coffee_machine.jpg");
+        // 1000ms later...go to coffee_mug
+
+        setTimeout(function () {  // Need function syntax here in setTimeout
+            myImage.setAttribute('src', "static/coffee_mug.jpg"); 
+        }, 2000);
+
+        setTimeout(function () {  // Need function syntax here in setTimeout
+            myImage.setAttribute('src', "static/coffee_beans.jpg"); 
+        }, 3000);
+
+        drinksOrdered.push(drinkType);
+        console.log(drinksOrdered);
+        
+       
+    } 
+
+    
 
     // use this dictionary in further study step
 
