@@ -47,8 +47,27 @@
 
     // Set these 3 variables to their DOM elements
 
-    var myImage = document.getElementById("coffee_image").setAttribute('src', "static/coffee_beans.jpg");
+    function makeCoffee(evt) {
+        myImage.setAttribute('src', "static/coffee_machine.jpg");
+        // 1000ms later...go to coffee_mug
 
+        setTimeout(function () {  // Need function syntax here in setTimeout
+            myImage.setAttribute('src', "static/coffee_mug.jpg"); 
+        }, 3000);
+
+        setTimeout(function () {  // Need function syntax here in setTimeout
+            myImage.setAttribute('src', "static/coffee_beans.jpg"); 
+        }, 6000);
+        
+       
+    } 
+
+    var myImage = document.getElementById("coffee_image");
+    myImage.setAttribute('src', "static/coffee_beans.jpg");
+
+    var imageButton = document.getElementById("coffee_image");
+
+    imageButton.addEventListener('click', makeCoffee);
 
     var myRevenueMessage;
 
